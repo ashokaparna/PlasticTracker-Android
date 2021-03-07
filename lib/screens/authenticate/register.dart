@@ -36,11 +36,7 @@ class _RegisterState extends State<Register> {
                 _displayEmailInput(),
                 _displayPasswordInput(),
                 _displayRegisterButton(),
-                SizedBox(
-                  height: 12.0,
-                ),
-                Text(error,
-                    style: TextStyle(color: Colors.red, fontSize: 14.0)),
+                _displayErrorText(),
               ],
             ),
           )),
@@ -128,6 +124,13 @@ class _RegisterState extends State<Register> {
           },
         ),
       ),
+    );
+  }
+
+  _displayErrorText() {
+    return Padding(
+      padding: EdgeInsets.only(top: 20),
+      child: Text(error, style: TextStyle(color: Colors.red, fontSize: 14.0)),
     );
   }
 }

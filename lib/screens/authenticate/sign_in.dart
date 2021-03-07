@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:plastic_tracker/screens/authenticate/auth.dart';
 
 class SignIn extends StatefulWidget {
@@ -44,9 +43,7 @@ class _SignInState extends State<SignIn> {
                 _displayEmailInput(),
                 _displayPasswordInput(),
                 _displaySignInButton(),
-                Text(error,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.red, fontSize: 14.0)),
+                _displayErrorText(),
               ],
             ),
           )),
@@ -155,6 +152,15 @@ class _SignInState extends State<SignIn> {
           color: Colors.redAccent,
         ),
       ),
+    );
+  }
+
+  _displayErrorText() {
+    return Padding(
+      padding: EdgeInsets.only(top: 20),
+      child: Text(error,
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.red, fontSize: 14.0)),
     );
   }
 }
