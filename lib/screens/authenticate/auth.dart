@@ -1,4 +1,7 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:plastic_tracker/user/app_user.dart';
 
 class AuthService {
@@ -23,7 +26,7 @@ class AuthService {
       return _userFirebase(user);
     } catch (e) {
       print(e.toString());
-      return null;
+      return e;
     }
   }
 
@@ -38,7 +41,7 @@ class AuthService {
       return _userFirebase(user);
     } catch (e) {
       print(e.toString());
-      return null;
+      return e;
     }
   }
 
