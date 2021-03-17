@@ -17,7 +17,7 @@ class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: _widgetOptionOnTap.elementAt(index),
       bottomNavigationBar: CupertinoTabBar(
         backgroundColor: Colors.blue[700],
