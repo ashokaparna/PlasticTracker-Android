@@ -9,27 +9,27 @@ class Authenticate extends StatefulWidget {
 }
 
 class _AuthenticateState extends State<Authenticate> {
-  int index = 0;
+  int _selectedIndex = 0;
 
   List<Widget> _widgetOptionOnTap = <Widget>[SignIn(), Register()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
-      body: _widgetOptionOnTap.elementAt(index),
+      resizeToAvoidBottomInset: false,
+      body: _widgetOptionOnTap.elementAt(_selectedIndex),
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: Colors.blue[700],
-        currentIndex: index,
+        backgroundColor: Colors.white,
+        currentIndex: _selectedIndex,
         onTap: (index) {
           setState(() {
-            this.index = index;
+            this._selectedIndex = index;
           });
         },
-        activeColor: Colors.black,
+        activeColor: new Color(0xFF2699FB),
         items: [
           BottomNavigationBarItem(
-              label: "Log-In",
+              label: "Sign-In",
               icon: Icon(
                 Icons.login,
               )),
