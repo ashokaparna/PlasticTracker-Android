@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plastic_tracker/user/app_user.dart';
 import 'package:plastic_tracker/screens/wrapper.dart';
-import 'package:plastic_tracker/screens/authenticate/auth.dart';
+import 'package:plastic_tracker/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
