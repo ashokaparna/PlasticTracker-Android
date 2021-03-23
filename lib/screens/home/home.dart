@@ -13,12 +13,12 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blueGrey,
         elevation: 0.0,
         actions: <Widget>[
-          FloatingActionButton(
-            child: Text('Sign Out'),
-            onPressed: () async {
-              await _auth.signOut();
-            },
-          )
+          FlatButton.icon(
+              onPressed: () async {
+                await _auth.signOut();
+              },
+              label: Text('Sign Out'),
+              icon: Icon(Icons.person))
         ],
       ),
     );

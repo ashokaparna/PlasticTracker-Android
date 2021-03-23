@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:plastic_tracker/screens/authenticate/auth.dart';
+import 'package:plastic_tracker/screens/home/home.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -104,10 +105,10 @@ class _SignInState extends State<SignIn> {
     return Padding(
       padding: EdgeInsets.only(top: 40),
       child: ButtonTheme(
-        minWidth: 200,
+        minWidth: 200.0,
         child: RaisedButton(
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0)),
+                borderRadius: BorderRadius.circular(40.0)),
             highlightElevation: 0.0,
             color: Colors.blue[300],
             child: Text('Sign In', style: TextStyle(color: Colors.black)),
@@ -141,11 +142,19 @@ class _SignInState extends State<SignIn> {
         minWidth: 200.0,
         child: RaisedButton.icon(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(40.0),
           ),
+          highlightElevation: 0.0,
           icon: Icon(Icons.email, color: Colors.white),
-          onPressed: () {
-            print('login with google');
+          onPressed: () async {
+            dynamic result = await _auth.signInWithGoogle();
+            if (result != null) {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) {
+                  return Home();
+                },
+              ));
+            }
           },
           label: Text('Sign in with Google',
               style: TextStyle(color: Colors.white)),
