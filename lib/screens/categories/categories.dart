@@ -23,8 +23,7 @@ class _PlasticInputCategoriesState extends State<PlasticInputCategories> {
     setState(() {
       loading = true;
     });
-    _getCategories(user);
-   // print("categories" + categories.toString());
+     _getCategories(user);
     setState(() {
       loading = false;
     });
@@ -42,30 +41,46 @@ class _PlasticInputCategoriesState extends State<PlasticInputCategories> {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           children: [
-            // for (final cat in categories)
-            //   Padding(
-            //     padding: const EdgeInsets.all(12.0),
-            //     child:  Text(cat.name),
-            //   ),
+            for (final cat in categories)
+           new GridTile(
+             child: new InkResponse (
+              onTap: () {
+                Navigator.of(context).push(PageRouteBuilder(
+                    opaque: false,
+                    pageBuilder: (BuildContext context, _, __) =>
+                        PlasticInputSubCategories(category: cat)));
+              },
+              child: new Card(
+                borderOnForeground: true,
+
+              shape: new RoundedRectangleBorder(
+                  side: new BorderSide(color: Colors.white)
+              ),
+              color: Colors.blue.withOpacity(0.9),
+              child: new Center(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+
+                      Expanded(child: Image.network(cat.icon, width: 100, height: 100,)),
+                      Text(cat.name.toUpperCase(), style: TextStyle(color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.bold)),
+                    ]
+                ),
+              )
+            ) ,
+          )),
           ]
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.arrow_right),
-          onPressed: () {
-            Navigator.of(context).push(PageRouteBuilder(
-                opaque: false,
-                pageBuilder: (BuildContext context, _, __) =>
-                    PlasticInputSubCategories()));
-          },
         ),
       ),
     );
   }
 
-  _getCategories(AppUser user) async {
+   _getCategories(AppUser user) async {
     APIClient client = new APIClient(user);
     categories = await client.getCategories();
-  //  print("categories" + categories.toString());
+
+    for(final cat in categories)
+      print(cat.icon);
   }
 }
 
