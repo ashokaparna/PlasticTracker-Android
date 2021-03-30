@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:plastic_tracker/screens/categories/categories.dart';
 import 'package:plastic_tracker/api_client/client.dart';
 import 'package:plastic_tracker/api_client/model/category.dart';
 import 'package:plastic_tracker/api_client/model/usage.dart';
 import 'package:plastic_tracker/screens/home/analytics.dart';
-import 'package:plastic_tracker/screens/home/user_plastic_input.dart';
 import 'package:plastic_tracker/services/auth.dart';
 import 'package:plastic_tracker/user/app_user.dart';
 import 'package:provider/provider.dart';
