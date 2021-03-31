@@ -12,11 +12,11 @@ class _AnalyticsState extends State<Analytics> {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-      children: <Widget>[
-        Expanded(flex: 1, child: GraphTab()),
-        Container(height: 5, color: Colors.blue.shade100,),
-        Expanded(child: PlasticUsageList()),
-      ],
-    ));
+          children: <Widget>[
+            Expanded(flex: 1, child: GraphTab()),
+            Container(height: 5, color: Colors.blue.shade100,),
+            Expanded(child: PlasticUsageList()),
+          ],
+        ));
   }
 }
