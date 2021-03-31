@@ -1,16 +1,19 @@
 # PlasticTracker-Android
 
-A new Flutter project.
+Android app that can be used to track your daily plastic consumption
 
-## Getting Started
+# Requirements
 
-This project is a starting point for a Flutter application.
+1. Latest Android Studio
+2. Android emulator or phone
+3. Flutter and Dart plugins
 
-A few resources to get you started if this is your first Flutter project:
+## Build Instructions
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Download the project from https://github.com/ashokaparna/PlasticTracker-Android
+2.  Open a terminal and go to the project folder
+3.  Run `flutter pub get` to get the dependencies
+4. Open the project in Android Studio
+5. Run the app in emulator
+6. In the login page you can give email: `test@gmail.com` and password `password` and you can use the app as test user 
+  
