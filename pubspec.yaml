@@ -38,6 +38,7 @@ dependencies:
   syncfusion_flutter_charts: ^18.3.50
   flutter_spinkit: ^4.0.0
   number_inc_dec: ^0.6.6
+  group_list_view: ^1.0.0
 
   firebase_analytics: ^5.0.2
   firebase_database: ^6.1.0

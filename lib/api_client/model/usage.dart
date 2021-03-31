@@ -9,6 +9,8 @@ class Usage {
   String category;
   double weight;
 
+
+
   factory Usage.fromJson(Map json) =>
       json == null ? Usage() : _$UsageFromJson(json);
 

@@ -177,6 +177,7 @@ class _RegisterState extends State<Register> {
   _displayRegisterButton() {
     return Padding(
       padding: EdgeInsets.only(top: 40),
+      // ignore: deprecated_member_use
       child: FlatButton(
         minWidth: 300.0,
         height: 50.0,

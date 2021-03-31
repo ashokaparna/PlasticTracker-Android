@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:plastic_tracker/api_client/client.dart';
-import 'package:plastic_tracker/api_client/model/category.dart';
-import 'package:plastic_tracker/api_client/model/usage.dart';
+import 'package:plastic_tracker/screens/categories/categories.dart';
 import 'package:plastic_tracker/screens/home/analytics.dart';
-import 'package:plastic_tracker/screens/home/user_plastic_input.dart';
 import 'package:plastic_tracker/services/auth.dart';
-import 'package:plastic_tracker/user/app_user.dart';
-import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,14 +12,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final AuthService _auth = AuthService();
 
-  // List<Widget> _widgetOptionOnTap = [
-  //   Analytics(),
-  //   PlasticCategories(),
-  // ];
-
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<AppUser>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -47,7 +36,6 @@ class _HomeState extends State<Home> {
         child: Icon(Icons.add),
         mini: true,
         onPressed: () async {
-          _testApiClient(user);
           Navigator.of(context).push(PageRouteBuilder(
               opaque: false,
               pageBuilder: (BuildContext context, _, __) =>
@@ -58,6 +46,7 @@ class _HomeState extends State<Home> {
   }
 
   _signOutButton(context) {
+    // ignore: deprecated_member_use
     return FlatButton.icon(
         minWidth: 10.0,
         onPressed: () {
@@ -66,6 +55,7 @@ class _HomeState extends State<Home> {
               builder: (context) => AlertDialog(
                     title: Text('Are you sure you want to exit?'),
                     actions: <Widget>[
+                      // ignore: deprecated_member_use
                       FlatButton(
                         onPressed: () {
                           print("you choose no");
@@ -73,6 +63,7 @@ class _HomeState extends State<Home> {
                         },
                         child: Text('No'),
                       ),
+                      // ignore: deprecated_member_use
                       FlatButton(
                         onPressed: () async {
                           Navigator.of(context).pop();
@@ -85,16 +76,5 @@ class _HomeState extends State<Home> {
         },
         label: Text(''),
         icon: Icon(Icons.person));
-  }
-
-  // TODO: For reference only. Remove after actual implementation is in place.
-  _testApiClient(AppUser user) async {
-    APIClient client = new APIClient(user);
-    Usage usage = new Usage(category: "Bottles", weight: 10.0);
-    await client.addUsage(usage);
-    List<Category> categories = await client.getCategories();
-    Map<String, List<Usage>> weeklyUsages = await client.getWeeklyUsages();
-    Map<String, List<Usage>> monthlyUsages = await client.getMonthlyUsages();
-    Map<String, List<Usage>> dailyUsages = await client.getDailyUsages();
   }
 }

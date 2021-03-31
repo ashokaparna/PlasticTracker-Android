@@ -42,7 +42,7 @@ class APIClient {
     for (var i = 0; i < 7; i++) {
       var key = _getDailyUsageKey(dateTime);
       List<Usage> data = await _getUsage(dailyUsage, key);
-      result[key] = data;
+      data != null ? result[key] = data : result[key] = <Usage>[];
       dateTime = Jiffy(dateTime).subtract(days: 1).dateTime;
     }
     return result;
@@ -54,7 +54,7 @@ class APIClient {
     for (var i = 0; i < 5; i++) {
       var key = _getWeeklyUsageKey(dateTime);
       List<Usage> data = await _getUsage(weeklyUsage, key);
-      result[key] = data;
+      data != null ? result[key] = data : result[key] = <Usage>[];
       dateTime = Jiffy(dateTime).subtract(weeks: 1).dateTime;
     }
     return result;
@@ -63,10 +63,10 @@ class APIClient {
   Future<Map<String, List<Usage>>> getMonthlyUsages() async {
     Map<String, List<Usage>> result = Map();
     DateTime dateTime = DateTime.now();
-    for (var i = 0; i < 12; i++) {
+    for (var i = 0; i < 6; i++) {
       var key = _getMonthlyUsageKey(dateTime);
       List<Usage> data = await _getUsage(monthlyUsage, key);
-      result[key] = data;
+      data != null ? result[key] = data : result[key] = <Usage>[];
       dateTime = Jiffy(dateTime).subtract(months: 1).dateTime;
     }
     return result;

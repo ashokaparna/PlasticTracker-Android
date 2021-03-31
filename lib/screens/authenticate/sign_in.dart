@@ -138,9 +138,8 @@ class _SignInState extends State<SignIn> {
   }
 
   _displaySignInButton() {
-    return Padding(
-      padding: EdgeInsets.only(top: 40),
-      child: FlatButton(
+    // ignore: deprecated_member_use
+    var flatButton = FlatButton(
           minWidth: 300.0,
           height: 50.0,
           shape: new RoundedRectangleBorder(
@@ -168,38 +167,12 @@ class _SignInState extends State<SignIn> {
                 });
               }
             }
-          }),
+          });
+    return Padding(
+      padding: EdgeInsets.only(top: 40),
+      child: flatButton,
     );
   }
-
-  // _displayGoogleLoginButton() {
-  //   return Padding(
-  //     padding: EdgeInsets.only(top: 100),
-  //     child: ButtonTheme(
-  //       minWidth: 200.0,
-  //       child: RaisedButton.icon(
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(40.0),
-  //         ),
-  //         highlightElevation: 0.0,
-  //         icon: Icon(Icons.email, color: Colors.white),
-  //         onPressed: () async {
-  //           dynamic result = await _auth.signInWithGoogle();
-  //           if (result != null) {
-  //             Navigator.of(context).push(MaterialPageRoute(
-  //               builder: (context) {
-  //                 return Home();
-  //               },
-  //             ));
-  //           }
-  //         },
-  //         label: Text('Sign in with Google',
-  //             style: TextStyle(color: Colors.white)),
-  //         color: Colors.redAccent,
-  //       ),
-  //     ),
-  //   );
-  // }
 
   _displayErrorText() {
     return Padding(
